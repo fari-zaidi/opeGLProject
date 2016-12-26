@@ -7,6 +7,7 @@
 #include "SOIL.h"
 using namespace std;
 int y = 0;
+GLuint B;
 void init()
 {
 
@@ -139,33 +140,33 @@ void titlePage()
 
 	glEnd();
 	glDisable(GL_BLEND);
-
- void timer(int t)
-{
-	y--;
-	myDisplay();
-	t++;
-	glutTimerFunc(100,timer,t);
 }
-int main(int argc, char* argv[]) {
+	void timer(int t)
+	{
+		y--;
+		myDisplay();
+		t++;
+		glutTimerFunc(100, timer, t);
+	}
+	int main(int argc, char* argv[]) {
 
-	// Initialize GLUT
-	glutInit(&argc, argv);
-	// Set up some memory buffers for our display
-	glutInitDisplayMode( GLUT_DOUBLE |GLUT_RGB);
-	// Set the window size
-	glutInitWindowSize(800, 600);
-	// Create the window with the title "Hello,GL"
-	glutCreateWindow("First_CG_Lab");
-	// Bind the two functions (above) to respond when necessary
+		// Initialize GLUT
+		glutInit(&argc, argv);
+		// Set up some memory buffers for our display
+		glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB);
+		// Set the window size
+		glutInitWindowSize(800, 600);
+		// Create the window with the title "Hello,GL"
+		glutCreateWindow("First_CG_Lab");
+		// Bind the two functions (above) to respond when necessary
 
 
-	// Very important!  This initializes the entry points in the OpenGL driver so we can 
-	// call all the functions in the API.
+		// Very important!  This initializes the entry points in the OpenGL driver so we can 
+		// call all the functions in the API.
 
-	glutDisplayFunc(myDisplay);
-	glutTimerFunc(100, timer, 1);
+		glutDisplayFunc(myDisplay);
+		glutTimerFunc(100, timer, 1);
 
-	glutMainLoop();
-	return 0;
-}
+		glutMainLoop();
+		return 0;
+	}
